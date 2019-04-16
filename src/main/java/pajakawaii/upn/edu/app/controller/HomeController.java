@@ -11,4 +11,8 @@ public class HomeController {
 	public String irHome() {
 		return "home";
 	}
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String mostrarPrincipal() {
+		return "home";
+	}
 }
