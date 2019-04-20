@@ -11,17 +11,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta charset="ISO-8859-1">
  <spring:url value="/resources" var="urlPublic"/>
-<link rel="stylesheet"
-		href="${urlPublic}/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-		href="${urlPublic}/bootstrap/css/theme.css">
-<link rel="stylesheet"
-		href="${urlPublic}/bootstrap/css/theme.css">
-		
-		<script type="javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-			<script src="${urlPublic}/bootstrap/js/popper.min.js"  ></script>
-			<script type="javascript" src="${urlPublic}/bootstrap/js/bootstrap.min.js"></script>
+ 
+ 
+ 
 
+			
+			
+ <!-- Custom fonts for this template-->
+  <link href="${urlPublic }/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="${urlPublic }/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="${urlPublic }/css/sb-admin.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -39,6 +42,17 @@
 		
 	<jsp:include page="../includes/SideBarBot.jsp"></jsp:include>	
 		
+			 <!-- Bootstrap core JavaScript-->
+  <script src="${urlPublic }/vendor/jquery/jquery.min.js"></script>
+  <script src="${urlPublic }/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="${urlPublic }/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="${urlPublic }/vendor/chart.js/Chart.min.js"></script>
+  <script src="${urlPublic }/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="${urlPublic }/vendor/datatables/dataTables.bootstrap4.js"></script>
 		
 		
 		
