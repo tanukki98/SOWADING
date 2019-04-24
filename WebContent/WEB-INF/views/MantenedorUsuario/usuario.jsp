@@ -29,7 +29,7 @@
 
 </head>
 <body>
-<jsp:include page="../includes/SideBarTop.jsp"></jsp:include>
+<jsp:include page="../includes/SideBar.jsp"></jsp:include>
 	<table class="table table-striped table-bordered table-hover">
 			<thead>
 			<tr><th>UsuarioId</th><th>Nombres</th><th>Apellidos</th><th>Nacionalidad</th><th>Sexo</th>
@@ -51,7 +51,7 @@
 			</c:forEach>
 		</tbody>
 			</table>
-			<jsp:include page="../includes/SideBarBot.jsp"></jsp:include>	
+			<jsp:include page="../includes/footer.jsp"></jsp:include>	
 						 <!-- Bootstrap core JavaScript-->
 		  <script src="${urlPublic }/vendor/jquery/jquery.min.js"></script>
 		  <script src="${urlPublic }/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -12,6 +12,8 @@
 <meta charset="ISO-8859-1">
 
 	<spring:url value="/MantenedorAves/listar" var="urllistarAve"/>
+	<spring:url value="/MantenedorRegion/listar" var="urllistarRegion"/>
+	<spring:url value="/home" var="urlhome"/>
 
   
   	
@@ -19,7 +21,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="home">
+        <a class="nav-link" href="${urlhome }">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>PAJARIk</span>
         </a>
@@ -30,8 +32,8 @@
           <span>Explorar</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">          
-          <a class="dropdown-item" href="${urllistarAve }">Listar por Aves</a>
-          <a class="dropdown-item" href="listarRegiones">Listar por regiones</a>        
+          <a class="dropdown-item" href="${urllistarAve }">Buscar por Aves</a>
+          <a class="dropdown-item" href="${urllistarRegion }">Buscar por regiones</a>        
         </div>
       </li>
       <li class="nav-item">

@@ -17,11 +17,16 @@ import pajakawaii.upn.edu.app.dao.AvesDao;
 import pajakawaii.upn.edu.app.model.Ave;
 
 @Controller
-//@RequestMapping("/mantenedorHome")
+//@RequestMapping("/MantenedorHome")
 public class HomeController {
 	@RequestMapping(value="/home", method=RequestMethod.GET)
 	public String irHome() {
 		System.out.println("Entra al controlador home");
+		return "MantenedorHome/home";
+	}
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String irHome2() {
+		System.out.println("Entra al controlador hom2e");
 		return "MantenedorHome/home";
 	}
 	@RequestMapping(value="/usuarioss", method=RequestMethod.GET)
@@ -32,10 +37,7 @@ public class HomeController {
 	public 	String irSide() {
 		return "includes/SideBar";
 	}
-	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String mostrarPrincipal() {
-		return "MantenedorHome/home";
-	}
+	
 	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public String searchBirdorRegion() {
 		

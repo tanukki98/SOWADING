@@ -28,16 +28,17 @@ import pajakawaii.upn.edu.app.model.Ave;
 @RequestMapping("/MantenedorAves")
 public class AveController {
 	
-	
+	@Autowired//INSTANCIA AUTOMATICAMENTE SIGUIENDO EL BEAN 
 	private AvesDao avesdao;
 	//Listar
 	@GetMapping(value="/listar")
 	public String listar(Model model) {
 		
-		List<Ave> aves = avesdao.listarAves();
+		List<Ave> aves = new ArrayList<Ave>();
+				aves=avesdao.listarAves();
 		
 		model.addAttribute("Modelaves",aves);
-		System.out.println("Entra al AVESCONTROLLER");
+		
 		
 		return "MantenedorAves/listarAves";
 		
@@ -52,12 +53,12 @@ public class AveController {
 		return "ave";
 	}
 	
-	@RequestMapping(value="buscarAve", method=RequestMethod.GET)
+	/*@RequestMapping(value="buscarAve", method=RequestMethod.GET)
 	public String buscarAve() {
 		
 		
 		return "MantenedorAves/buscarAve";
-	}
+	}*/
 	
 
 	
@@ -65,6 +66,7 @@ public class AveController {
 	@RequestMapping (value="/buscarAve", method=RequestMethod.POST)
 	public String buscarAve(Model model,			
 			@RequestParam("id") int id) {
+		
 		
 		try {
 			System.out.println("Entra a la busqueda de avessx");
@@ -74,13 +76,14 @@ public class AveController {
 			model.addAttribute("Vave",ave);			
 		}
 		catch (Exception ex) {
-			System.out.print(ex.toString());;
+			System.out.print(ex.toString());
+			return "redirect:/MantenedorAves/listar";
 		}
 		
 		return "MantenedorAves/mostrarAve";
 	}
 	
-	
+	/*
 	@RequestMapping(value="/buscarAve/{idAve}", method = RequestMethod.GET)
 	public ModelAndView editar(@PathVariable("idAve") int id) {
 		Ave ave = avesdao.busquedaAve(id);		
@@ -88,7 +91,7 @@ public class AveController {
 		model.addObject("Modelave",ave);
 		return model;
 	}
-	
+	*/
 	
 
 }

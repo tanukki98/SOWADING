@@ -11,10 +11,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta charset="ISO-8859-1">
  <spring:url value="/resources" var="urlPublic"/>
-  <spring:url value="/MantenedorAve/save" var="urlForm"></spring:url>
-  <spring:url value="/MantenedorAve/buscar" var="urlSearch"></spring:url>
+ 
+ 
  
 
+			
 			
  <!-- Custom fonts for this template-->
   <link href="${urlPublic }/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,21 +28,34 @@
 </head>
 <body>
 	<div id="wrapper">
-	<jsp:include page="../includes/SideBarTop.jsp"></jsp:include>
+	<jsp:include page="../includes/SideBar.jsp"></jsp:include>
 	<div id="content-wrapper" class="d-flex flex-column">
 	<div id="content">
+	
 		
-		<form value="busquedaAve" method="post">
-					<div>
-		    <label for="avesID">ID de Ave:</label>
-		    <input type="number" id="id" name="id">
-		  </div>		  		  
-		  <div class="button">
-		  <button type="submit">Accept</button>
-		  </div>
-		</form>
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+			<tr><th>ID</th><th>Nombre de Region</th><th>Coordenadas</th>
+			
+			</tr>
+		</thead>	
+		<tbody>
+			
+				<tr>
+				<td>${Vregion.regionID}</td>
+				<td>${Vregion.nombre_region}</td>
+				<td>${Vregion.coordenadas}</td>
+				
+				
+			
+				</tr>			
+			
+		</tbody>
+			</table>
+	
+		
 	</div>
-	<jsp:include page="../includes/SideBarBot.jsp"></jsp:include>	
+	<jsp:include page="../includes/footer.jsp"></jsp:include>	
 	</div>
 	
 	</div>

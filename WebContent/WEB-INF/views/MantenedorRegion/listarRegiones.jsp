@@ -31,15 +31,60 @@
 	<jsp:include page="../includes/SideBar.jsp"></jsp:include>
 	<div id="content-wrapper" class="d-flex flex-column">
 	<div id="content">
-	<div>
-			<h1>PAJARIN KAWAI</h1>
-            
-             
-            
-
+		
+			<div class="card shadow mb-4">
+						
+						<div class="card-body">
+							<div><!-- BUSQUEDA -->
+							<form name='buscarRegion'
+      								  action="<c:url value='/MantenedorRegion/buscarRegion' />" method='POST'>
+							<div>
+						    <label for="regionID">ID de Region:</label>
+						    <input type="number" id="id" name="id">
+						    <button class="btn btn-secondary pull-right" type="submit">Accept</button>
+						  </div>		  		  
+						  
+							</form>
+							
+							
+							
+							</div>
+							</br></br>
+						
+						
+							<div class="table-responsive">
+								<table id="tb_aspirante" class="table table-bordered" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Nombre de Region</th>
+											<th>Coordenadas</th>
+											
+											
+											<!--<th>Foto</th> -->
+											
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${Modelregiones}" var="dato">
+											<tr>
+												<td> ${dato.regionID} </td>
+												<td> ${dato.nombre_region} </td>
+												<td> ${dato.coordenadas} </td>
+												
+												
+												
+											
+												
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 	
-	</div>
-	</div>
+		</div>
 	<jsp:include page="../includes/footer.jsp"></jsp:include>	
 	</div>
 	

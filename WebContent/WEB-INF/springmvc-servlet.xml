@@ -38,8 +38,13 @@
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
+	
 	<bean id="avesdao"
 		class="pajakawaii.upn.edu.app.service.AveImpl">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<bean id="regiondao"
+		class="pajakawaii.upn.edu.app.service.RegionImpl">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	

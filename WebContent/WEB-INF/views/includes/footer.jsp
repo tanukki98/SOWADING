@@ -3,7 +3,7 @@
 <footer class="sticky-footer bg-white">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright &copy; e-Fire -Sistema - 2019</span>
+			<span>Copyright &copy; Pajarin Kawaii -Sistema - 2019</span>
 		</div>
 	</div>
 </footer>
