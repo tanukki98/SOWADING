@@ -29,24 +29,31 @@ public class AveImpl implements AvesDao {
 	
 	@SuppressWarnings("rawtypes")
 	public List<Ave> listarAves(){
-		jdbcTemplate = new JdbcTemplate(dataSource);
+	/*jdbcTemplate = new JdbcTemplate(dataSource);
 		String query = 
-				"SELECT avesID,nombre_comun,nombre_cientifico,peso,tamanio "
-				+ "FROM aves";
-		
+				"SELECT avesID,nombre_comun,nombre_cientifico,peso,tamanio FROM aves";*/
+		 Ave avex = new Ave();
 		List<Ave> aves = new ArrayList<Ave>();
-		List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
+		/*List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
         for (Map row : rows) {
             Ave ave = new Ave();
+            System.out.println(row.toString()); 
             ave.setAvesID(Integer.parseInt(String.valueOf(row.get("avesID")))); 
             ave.setNombre_comun((String)row.get("nombre_comun"));
             ave.setNombre_cientifico((String)row.get("nombre_cientifico"));
             ave.setPeso(Float.parseFloat(String.valueOf(row.get("peso"))));
-            ave.setTamanio(Float.parseFloat(String.valueOf(row.get("tamanio"))));
-           
+            ave.setTamanio(Float.parseFloat(String.valueOf(row.get("tamanio")))); 
+          
             
             aves.add(ave);
         }
+        */
+        avex.setAvesID(1);
+        avex.setNombre_cientifico("sylan");
+        avex.setNombre_comun("dylan");
+        avex.setPeso((float)5.5);
+        avex.setTamanio((float)5.5);
+        aves.add(avex);
         System.out.println("Entra al listar");
         return aves;
 	};
