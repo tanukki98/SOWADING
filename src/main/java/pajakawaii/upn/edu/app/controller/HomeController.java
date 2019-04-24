@@ -21,7 +21,12 @@ import pajakawaii.upn.edu.app.model.Ave;
 public class HomeController {
 	@RequestMapping(value="/home", method=RequestMethod.GET)
 	public String irHome() {
+		System.out.println("Entra al controlador home");
 		return "MantenedorHome/home";
+	}
+	@RequestMapping(value="/usuarioss", method=RequestMethod.GET)
+	public String irUsuario() {
+		return "MantenedorUsuario/usuario";
 	}
 	@RequestMapping(value="/sidebar",method=RequestMethod.GET)
 	public 	String irSide() {
@@ -29,7 +34,7 @@ public class HomeController {
 	}
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String mostrarPrincipal() {
-		return "/home";
+		return "MantenedorHome/home";
 	}
 	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public String searchBirdorRegion() {
@@ -37,44 +42,7 @@ public class HomeController {
 		return "search";
 	}
 	
-	@RequestMapping(value="/listar", method=RequestMethod.GET)
-	public String mostrarListaAves(Model model) {
-		
-		List<Ave> aves = getLista();//new LinkedList<>();
-		//peliculas.add("A"); //peliculas.add("B"); //peliculas.add("C");
-		model.addAttribute("Vaves",aves);
-		
-		return "MantenedorAves/ave";
-	}
 	
-	private List<Ave> getLista() {
-		
-		List<Ave> lista = null;
-		try {
-			lista = new LinkedList<Ave>();
-			
-			Ave p = new Ave();
-			
-			p.setAvesID(1);
-			p.setNombre_cientifico("Avus primitus");
-			p.setNombre_comun("Pajarraco");
-			p.setPeso((float)3.3);
-			p.setTamanio(30);
-			
-			Ave p2 = new Ave();
-			
-			p2.setAvesID(2);
-			p2.setNombre_cientifico("Avus primitus2");
-			p2.setNombre_comun("Pajarraco2");
-			p2.setPeso((float)3.3);
-			p2.setTamanio(30);	
-			lista.add(p);
-			lista.add(p2);
-			
-			return lista;
-		}
-		catch(Exception ex){
-			return null;
-		}
-	}
+	
+
 }

@@ -1,14 +1,10 @@
 
-          	<!-- BOTTOM -->
-   
-	</div id="wrapper">
-       
-      <!-- Sticky Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © PajaKawaii 2019</span>
-          </div>
-        </div>
-      </footer>
-
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+	<div class="container my-auto">
+		<div class="copyright text-center my-auto">
+			<span>Copyright &copy; e-Fire -Sistema - 2019</span>
+		</div>
+	</div>
+</footer>
+<!-- End of Footer -->

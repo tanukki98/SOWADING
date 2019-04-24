@@ -11,11 +11,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta charset="ISO-8859-1">
  <spring:url value="/resources" var="urlPublic"/>
- 
- 
+  <spring:url value="/MantenedorAve/save" var="urlForm"></spring:url>
+  <spring:url value="/MantenedorAve/buscar" var="urlSearch"></spring:url>
  
 
-			
 			
  <!-- Custom fonts for this template-->
   <link href="${urlPublic }/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -31,14 +30,16 @@
 	<jsp:include page="../includes/SideBarTop.jsp"></jsp:include>
 	<div id="content-wrapper" class="d-flex flex-column">
 	<div id="content">
-	<div>
-			<h1>PAJARIN KAWAI</h1>
-            
-             
-            
-
-	
-	</div>
+		
+		<form value="busquedaAve" method="post">
+					<div>
+		    <label for="avesID">ID de Ave:</label>
+		    <input type="number" id="id" name="id">
+		  </div>		  		  
+		  <div class="button">
+		  <button type="submit">Accept</button>
+		  </div>
+		</form>
 	</div>
 	<jsp:include page="../includes/SideBarBot.jsp"></jsp:include>	
 	</div>
