@@ -30,6 +30,8 @@
 	<div id="wrapper">
 	<jsp:include page="../includes/SideBar.jsp"></jsp:include>
 	<div id="content-wrapper" class="d-flex flex-column">
+	<style>p {padding-left:15%;}</style>
+	<ul>
 	<div id="content">
 		
 			<div class="card shadow mb-4">
@@ -42,7 +44,7 @@
 							<div>
 						    <label for="avesID">ID de Ave:</label>
 						    <input type="number" id="id" name="id">
-						    <button class="btn btn-secondary pull-right" type="submit">Accept</button>
+						    <button class="btn btn-secondary pull-right" type="submit">Buscar</button>
 						  </div>		  		  
 						  
 							</form>
@@ -58,8 +60,8 @@
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Nombre Comun</th>
 											<th>Nombre Cientifico</th>
+											<th>Nombre Comun</th>
 											<th>Peso</th>
 											<th>Tamaño</th>
 											
@@ -87,6 +89,7 @@
 					</div>
 	
 		</div>
+		</ul>
 	<jsp:include page="../includes/footer.jsp"></jsp:include>	
 	</div>
 	

@@ -12,7 +12,10 @@
 <meta charset="ISO-8859-1">
 
 	<spring:url value="/MantenedorAves/listar" var="urllistarAve"/>
+	<spring:url value="/MantenedorAves/crear" var="urlcrearAve"/>
+	<spring:url value="/MantenedorRegion/crear" var="urlcrearRegion"/>
 	<spring:url value="/MantenedorRegion/listar" var="urllistarRegion"/>
+	<spring:url value="/MantenedorUsuario/listar" var="urllistarUsuario"/>
 	<spring:url value="/home" var="urlhome"/>
 
   
@@ -27,19 +30,25 @@
         </a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="SearchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Explorar</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">          
+        <div class="dropdown-menu" aria-labelledby="SearchDropdown">          
           <a class="dropdown-item" href="${urllistarAve }">Buscar por Aves</a>
-          <a class="dropdown-item" href="${urllistarRegion }">Buscar por regiones</a>        
+          <a class="dropdown-item" href="${urllistarRegion }">Buscar por regiones</a>
+          <a class="dropdown-item" href="${urllistarUsuario }">Lista de Usuarios</a>        
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>segunda opcion</span></a>
+      <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="MantenedorAvesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <i class="fas fa-fw fa-folder"></i>
+          <span>Administrador</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="MantenedorAvesDropdown">          
+          <a class="dropdown-item" href="${urlcrearAve }">Crear Ave</a>
+          <a class="dropdown-item" href="${urlcrearRegion }">Crear Region</a>        
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tables.html">

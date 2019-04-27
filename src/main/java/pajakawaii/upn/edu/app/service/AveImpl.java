@@ -18,6 +18,10 @@ import com.mysql.jdbc.PreparedStatement;
 
 
 
+
+
+
+
 public class AveImpl implements AvesDao {
 	
 	private DataSource dataSource;
@@ -27,11 +31,31 @@ public class AveImpl implements AvesDao {
 		this.dataSource = dataSource;
 	}
 	
+	
+	//CREACION DE AVE
+	public int insertarAve(Ave ave) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String query = 
+				"INSERT INTO aves (avesID,nombre_comun,nombre_cientifico,peso,tamanio) VALUES (?,?,?,?,?)";
+		Object[] inputs = new Object[] 
+			{
+				ave.getAvesID(),				
+				ave.getNombre_comun(),
+				ave.getNombre_cientifico(),
+				ave.getPeso(),
+				ave.getTamanio()
+									
+			};
+		return jdbcTemplate.update(query,inputs);
+	}
+	
+	
+	
 	@SuppressWarnings("rawtypes")
 	public List<Ave> listarAves(){
 	jdbcTemplate = new JdbcTemplate(dataSource);
 		String query = 
-				"SELECT avesID,nombre_comun,nombre_cientifico,peso,tamanio FROM aves";
+				"SELECT avesID,nombre_comun,nombre_cientifico,peso,tamanio FROM aves WHERE ESTADO=1";
 		
 		List<Ave> aves = new ArrayList<Ave>();
 		List<Map<String, Object>> rows = jdbcTemplate.queryForList(query);
@@ -71,4 +95,31 @@ public class AveImpl implements AvesDao {
 		
 		
 	}
+	
+	//EDITAR
+	public int editarAve(Ave ave) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String query = 
+				"UPDATE aves SET nombre_cientifico=?, nombre_comun=?, peso=?, tamanio=? "
+				+ " WHERE avesID =? ";
+		Object[] inputs = new Object[] 
+			{
+					
+				ave.getNombre_cientifico(),
+				ave.getNombre_comun(),
+				ave.getPeso(),
+				ave.getTamanio(),
+				ave.getAvesID()
+			};
+		
+		return jdbcTemplate.update(query,inputs);
+	};
+	
+	//ELIMINAR
+	public int eliminarAve(int id) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String query = "UPDATE aves SET ESTADO = 0 WHERE avesID = ?";
+		Object[] inputs = new Object[] {id};
+		return jdbcTemplate.update(query,inputs);
+	};
 }

@@ -1,3 +1,4 @@
+
 package pajakawaii.upn.edu.app.service;
 
 import java.util.ArrayList;
@@ -35,10 +36,7 @@ public class RegionImpl implements RegionDao {
             region.setRegionID(Integer.parseInt(String.valueOf(row.get("regionID"))));    
             region.setNombre_region((String)row.get("nombre_region"));
             region.setCoordenadas((String)row.get("coordenadas"));
-            
-           
-          
-            
+  
             regiones.add(region);
         }
         
@@ -63,6 +61,47 @@ public class RegionImpl implements RegionDao {
 
         return region;
 		
-		
 	}
+	
+	
+	/*CREATE*/
+	public int insertarRegion(Region region) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String query = 
+				"INSERT INTO region(RegionID, nombre_region, Coordenadas)"
+				+ "VALUES (?,?,?)";
+		Object[] inputs = new Object[] 
+			{
+				region.getRegionID(),
+				region.getNombre_region(),
+				region.getCoordenadas()
+				};
+		return jdbcTemplate.update(query,inputs);
+	}
+	
+	/*UPDATE*/
+	public int editarRegion(Region region) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String query = 
+				"UPDATE region SET RegionID=?, Nombre_region=?, Coordenadas=?"
+				+ " WHERE regionID =? ";
+		Object[] inputs = new Object[] 
+			{
+				region.getRegionID(),
+				region.getNombre_region(),
+				region.getCoordenadas(),
+				};
+		return jdbcTemplate.update(query,inputs);
+	};
+	
+	/*DELETE*/
+	public int eliminarRegion(int regionID) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+		String query = "UPDATE region WHERE regionID = ?";
+		Object[] inputs = new Object[] {regionID};
+		return jdbcTemplate.update(query,inputs);
+	}
+	
 }
+
+

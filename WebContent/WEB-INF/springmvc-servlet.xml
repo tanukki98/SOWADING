@@ -47,5 +47,9 @@
 		class="pajakawaii.upn.edu.app.service.RegionImpl">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
+	<bean id="usuariodao"
+		class="pajakawaii.upn.edu.app.service.UsuarioImpl">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
 	
 </beans>

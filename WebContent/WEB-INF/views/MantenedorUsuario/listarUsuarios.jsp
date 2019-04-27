@@ -35,42 +35,37 @@
 			<div class="card shadow mb-4">
 						
 						<div class="card-body">
-							<div><!-- BUSQUEDA -->
-							<form name='buscarRegion'
-      								  action="<c:url value='/MantenedorRegion/buscarRegion' />" method='POST'>
-							<div>
-						    <label for="regionID">ID de Region:</label>
-						    <input type="number" id="id" name="id">
-						    <button class="btn btn-secondary pull-right" type="submit">Buscar</button>
-						  </div>		  		  
-						  
-							</form>
-							
-							
-							
-							</div>
+						
 							</br></br>
 						
 						
 							<div class="table-responsive">
-								<table id="tb_aspirante" class="table table-bordered" width="100%" cellspacing="0">
+								<table id="tb_usuarios" class="table table-bordered" width="100%" cellspacing="0">
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Nombre de Region</th>
-											<th>Coordenadas</th>
+											<th>Nombre de Usuario</th>
+											<th>Nombres</th>
+											<th>Apellidos</th>
+											<th>Sexo</th>
+											<th>Nacionalidad</th>
+											<th>esAdmin</th>
 											
 											
-											<!--<th>Foto</th> -->
+											
 											
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${Modelregiones}" var="dato">
+										<c:forEach items="${Modelusuarios}" var="dato">
 											<tr>
-												<td> ${dato.regionID} </td>
-												<td> ${dato.nombre_region} </td>
-												<td> ${dato.coordenadas} </td>
+												<td> ${dato.usuarioID} </td>
+												<td> ${dato.nombreu} </td>
+												<td> ${dato.nombres} </td>
+												<td> ${dato.apellidos} </td>
+												<td> ${dato.sexo} </td>
+												<td> ${dato.nacionalidad} </td>
+												<td> ${dato.esAdmin} </td>
 												
 												
 												

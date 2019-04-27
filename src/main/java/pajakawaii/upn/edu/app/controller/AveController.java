@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +33,44 @@ public class AveController {
 	
 	@Autowired//INSTANCIA AUTOMATICAMENTE SIGUIENDO EL BEAN 
 	private AvesDao avesdao;
+	
+	//Create
+		@GetMapping(value="/crear")
+		public String crear() 
+		{
+			return "MantenedorAves/crearAve";
+		}
+		@PostMapping(value="/guardar")
+		public String guardarAve(
+				@RequestParam("avesID") int avesID,
+				@RequestParam("nombre_cientifico") String nombre_cientifico,
+				@RequestParam("nombre_comun") String nombre_comun,				
+				@RequestParam("peso") float peso,
+				@RequestParam("tamanio") float tamanio)
+		{
+			try {
+				Ave ave = new Ave();
+				ave.setAvesID(avesID);
+				ave.setNombre_cientifico(nombre_cientifico);
+				ave.setNombre_comun(nombre_comun);
+				ave.setPeso(peso);
+				ave.setTamanio(tamanio);
+				
+				avesdao.insertarAve(ave);
+				
+			}
+			catch (Exception ex) {
+				System.out.print(ex.toString());;
+			}
+			return "redirect:/MantenedorAves/listar";
+		}
+		
+	
+	
+	
+	
+	
+	
 	//Listar
 	@GetMapping(value="/listar")
 	public String listar(Model model) {
@@ -53,16 +94,9 @@ public class AveController {
 		return "ave";
 	}
 	
-	/*@RequestMapping(value="buscarAve", method=RequestMethod.GET)
-	public String buscarAve() {
-		
-		
-		return "MantenedorAves/buscarAve";
-	}*/
-	
 
 	
-	
+	//BUSCAR
 	@RequestMapping (value="/buscarAve", method=RequestMethod.POST)
 	public String buscarAve(Model model,			
 			@RequestParam("id") int id) {
@@ -83,15 +117,52 @@ public class AveController {
 		return "MantenedorAves/mostrarAve";
 	}
 	
-	/*
-	@RequestMapping(value="/buscarAve/{idAve}", method = RequestMethod.GET)
-	public ModelAndView editar(@PathVariable("idAve") int id) {
-		Ave ave = avesdao.busquedaAve(id);		
-		ModelAndView model = new ModelAndView("MantenedorAves/mostrarAve");
-		model.addObject("Modelave",ave);
-		return model;
-	}
-	*/
+	//Editar
+		@RequestMapping(value="/editar/{avesID}", method = RequestMethod.GET)
+		public ModelAndView editarAve(@PathVariable("avesID") int id) {			
+			Ave ave = avesdao.busquedaAve(id);			
+			ModelAndView model = new ModelAndView("MantenedorAves/editarAve");
+			model.addObject("Modelaves",ave);
+			return model;
+		}
+		
+		@RequestMapping(value="/guardarCambios", method = RequestMethod.POST)
+		public String actualizarAve(
+				@RequestParam("avesID") int avesID,
+				@RequestParam("nombre_cientifico") String nombre_cientifico,
+				@RequestParam("nombre_comun") String nombre_comun,
+				@RequestParam("peso") float peso,				
+				@RequestParam("tamanio") float tamanio	)	
+		{
+			
+			try {
+				Ave ave = new Ave();
+				ave.setAvesID(avesID);
+				ave.setNombre_cientifico(nombre_cientifico);
+				ave.setNombre_comun(nombre_comun);
+				ave.setPeso(peso);
+				ave.setTamanio(tamanio);
+				
+				avesdao.editarAve(ave);
+			}
+			catch (Exception ex) {
+				System.out.print(ex.toString());;
+			}
+			return "redirect:/MantenedorAves/listar";
+		}
+		
+		//Eliminar
+		@GetMapping(value="/eliminar")
+		public String eliminarAve(Model model, @RequestParam("avesID") int id)
+		{
+			try {
+				avesdao.eliminarAve(id);
+			}
+			catch (Exception ex) {
+				System.out.print(ex.toString());;
+			}
+			return "redirect:/MantenedorAves/listar";
+		}
 	
 
 }

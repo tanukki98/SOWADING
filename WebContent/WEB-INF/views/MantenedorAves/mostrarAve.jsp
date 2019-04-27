@@ -11,6 +11,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta charset="ISO-8859-1">
  <spring:url value="/resources" var="urlPublic"/>
+ <spring:url value="/MantenedorAves/editar" var="urlEditarAve"/>
+ <spring:url value="/MantenedorAves/eliminar" var="urlEliminarAve"/>
  
  
  
@@ -30,23 +32,48 @@
 	<div id="wrapper">
 	<jsp:include page="../includes/SideBar.jsp"></jsp:include>
 	<div id="content-wrapper" class="d-flex flex-column">
+	<style>p {
+	padding-left:15%; margin-right:40px;
+	
+	
+	}
+	ul.ex1 {
+		  
+		  padding-right: 15%;
+		}
+	</style>
+	<ul class="ex1">
 	<div id="content">
 	
 		
-		<table class="table table-striped table-bordered table-hover">
+		<table  border="10"  class="table table-striped table-bordered table-hover">
 			<thead>
-			<tr><th>ID</th><th>Nombre Comun</th><th>Nombre Cientifico</th><th>peso</th><th>Tamaño</th>
+			<tr><th>ID</th><th>Nombre Comun</th><th>Nombre Cientifico</th><th>peso</th><th>Tamaño</th><th>Opciones</th>
 			
 			</tr>
 		</thead>	
 		<tbody>
 			
 				<tr>
-				<td>${Vave.avesID}</td>
-				<td>${Vave.nombre_comun}</td>
-				<td>${Vave.nombre_cientifico}</td>
-				<td>${Vave.peso}</td>
-				<td>${Vave.tamanio}</td>
+				<td width="10%">${Vave.avesID}</td>
+				<td width="10%">${Vave.nombre_comun}</td>
+				<td width="10%">${Vave.nombre_cientifico}</td>
+				<td width="10%">${Vave.peso}</td>
+				<td width="10%">${Vave.tamanio}</td>
+				<td width="10%">
+				<a href="${urlEditarAve}/${Vave.avesID}"
+					   class="btn btn-info">
+						<i class="fas fa-edit" style="margin-right:4px"></i>
+						Editar
+						</a>
+						
+						<a href="${urlEliminarAve}?avesID=${Vave.avesID}"
+						class="btn btn-danger">
+						<i class="fas fa-trash" style="margin-right:4px"></i>
+						Eliminar
+				</a>
+				
+				</td>
 				
 			
 				</tr>			
@@ -56,6 +83,7 @@
 	
 		
 	</div>
+	</ul>
 	<jsp:include page="../includes/footer.jsp"></jsp:include>	
 	</div>
 	
